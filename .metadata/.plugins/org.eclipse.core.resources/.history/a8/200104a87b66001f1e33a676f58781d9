@@ -1,0 +1,38 @@
+package com.example.one.controller;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/warehouses")
+public class WarehouseController {
+
+    // Inject your service here
+    private final WarehouseService warehouseService;
+
+    public WarehouseController(WarehouseService warehouseService) {
+        this.warehouseService = warehouseService;
+    }
+
+    @GetMapping
+    public List<Warehouse> getAllWarehouses() {
+        return warehouseService.getAllWarehouses();
+    }
+
+    @PostMapping
+    public Warehouse createWarehouse(@RequestBody Warehouse warehouse) {
+        return warehouseService.createWarehouse(warehouse);
+    }
+
+    @PutMapping("/{id}")
+    public Warehouse updateWarehouse(@PathVariable Long id, @RequestBody Warehouse warehouse) {
+        return warehouseService.updateWarehouse(id, warehouse);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteWarehouse(@PathVariable Long id) {
+        warehouseService.deleteWarehouse(id);
+    }
+}
+

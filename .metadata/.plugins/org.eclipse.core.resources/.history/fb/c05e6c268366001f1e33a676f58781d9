@@ -1,0 +1,53 @@
+package com.example.one.controller;
+
+import com.example.one.model.Stock;
+import com.example.one.service.InventoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
+public class StockController {
+
+    @Autowired
+    private InventoryService inventoryService;
+
+    // Get all stocks
+    @GetMapping("/stocks")
+    public ResponseEntity<List<Stock>> getAllStocks() {
+        List<Stock> stocks = inventoryService.getAllStocks();
+        return new ResponseEntity<>(stocks, HttpStatus.OK);
+    }
+
+    // Get stock by ID
+    @GetMapping("/stocks/{id}")
+    public ResponseEntity<Stock> getStockById(@PathVariable Long id) {
+        Stock stock = inventoryService.getStockById(id);
+        return new ResponseEntity<>(stock, HttpStatus.OK);
+    }
+
+    // Create a new stock
+    @PostMapping("/stocks")
+    public ResponseEntity<Stock> createStock(@RequestBody Stock stock) {
+        Stock createdStock = inventoryService.addStock(stock);
+        return new ResponseEntity<>(createdStock, HttpStatus.CREATED);
+    }
+
+    // Update an existing stock
+    @PutMapping("/stocks/{id}")
+    public ResponseEntity<Stock> updateStock(@PathVariable Long id, @RequestBody Stock stockDetails) {
+        Stock updatedStock = inventoryService.updateStock(id, stockDetails);
+        return new ResponseEntity<>(updatedStock, HttpStatus.OK);
+    }
+
+    // Delete a stock
+    @DeleteMapping("/stocks/{id}")
+    public ResponseEntity<Void> deleteStock(@PathVariable Long id) {
+        inventoryService.deleteStock(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+}
