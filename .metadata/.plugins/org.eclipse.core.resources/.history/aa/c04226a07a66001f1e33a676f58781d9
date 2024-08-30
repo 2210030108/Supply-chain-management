@@ -1,0 +1,11 @@
+package com.example.one.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.one.model.Warehouse;
+
+@PostMapping
+public Warehouse createWarehouse(@RequestBody Warehouse warehouse) {
+    return warehouseRepository.save(warehouse);
+}
+
