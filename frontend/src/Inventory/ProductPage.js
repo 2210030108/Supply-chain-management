@@ -1,7 +1,7 @@
 // src/components/ProductPage.js
 import React, { useState, useEffect } from 'react';
 import { apiService } from '../apiService';
-import NavBar from './NavBar';
+
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -36,7 +36,7 @@ const ProductPage = () => {
 
   return (
     <>
-    <NavBar/>
+    
     <div>
       <h2 className="text-xl font-semibold mb-4">Products</h2>
       <div className="mb-8">

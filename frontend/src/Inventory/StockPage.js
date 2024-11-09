@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiService } from '../apiService';
-import NavBar from './NavBar';
+
 
 const StockPage = () => {
   const [stocks, setStocks] = useState([]);
@@ -78,7 +78,7 @@ const StockPage = () => {
 
   return (
     <>
-    <NavBar/>
+
     <div>
       <h2 className="text-xl font-semibold mb-4">Stocks</h2>
 

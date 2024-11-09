@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiService } from '../apiService';
-import NavBar from './NavBar';
+
 
 const WarehousePage = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -71,7 +71,7 @@ const WarehousePage = () => {
 
   return (
     <>
-    <NavBar/>
+   
     <div>
       <h2 className="text-xl font-semibold mb-4">Warehouses</h2>
       <div className="mb-8">

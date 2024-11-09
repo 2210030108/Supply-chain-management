@@ -22,11 +22,46 @@ public class SecurityConfig {
             .cors() // Enable CORS
             .and()
             .authorizeRequests()
+                // Allow specific API endpoints to be accessed without authentication
                 .requestMatchers("/api/register", "/api/login").permitAll()
-                .requestMatchers("/api/products/**", "/api/stocks/**", "/api/warehouses/**").permitAll()
+                
+                // API Endpoints related to Orders
+                .requestMatchers("/api/orders/**").permitAll()
+                
+                // API Endpoints related to Customers
+                .requestMatchers("/api/customers/**").permitAll()
+                
+                // API Endpoints related to Products (Add here any paths for Products API)
+                .requestMatchers("/api/products/**").permitAll()
+                
+                // API Endpoints related to Suppliers
+                .requestMatchers("/api/suppliers/**").permitAll()
+                
+                // API Endpoints related to Purchase Orders and Details
+                .requestMatchers("/api/purchaseOrders/**").permitAll()
+                .requestMatchers("/api/purchaseOrderDetails/**").permitAll()
+                
+                // API Endpoints related to Production Planning
+                .requestMatchers("/api/productionOrders/**").permitAll()
+                .requestMatchers("/api/workOrders/**").permitAll()
+                
+                // API Endpoints related to Shipments
+                .requestMatchers("/api/shipments/**").permitAll()
+                .requestMatchers("/api/shipmentDetails/**").permitAll()
+                
+                // API Endpoints related to Forecasting
+                .requestMatchers("/api/forecasts/**").permitAll()
+                .requestMatchers("/api/historicalSales/**").permitAll()
+                
+                // API Endpoints related to Supplier Contracts and Performance
+                .requestMatchers("/api/supplierContracts/**").permitAll()
+                .requestMatchers("/api/supplierPerformance/**").permitAll()
+
+                // Allow all other endpoints to be authenticated
                 .anyRequest().authenticated()
             .and()
-            .formLogin().disable();
+            .formLogin().disable(); // Disable form login
+
         return http.build();
     }
 

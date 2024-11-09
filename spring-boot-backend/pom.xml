@@ -74,6 +74,27 @@
   <artifactId>mysql-connector-java</artifactId>
   <version>8.0.29</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.web3j/core -->
+<dependency>
+    <groupId>org.web3j</groupId>
+    <artifactId>core</artifactId>
+    <version>5.0.0</version>
+</dependency>
+<dependency>
+    <groupId>org.web3j</groupId>
+    <artifactId>core</artifactId>
+    <version>4.9.8</version>  <!-- Use the latest version -->
+</dependency>
+<dependency>
+    <groupId>jakarta.validation</groupId>
+    <artifactId>jakarta.validation-api</artifactId>
+    <version>3.0.0</version><!--$NO-MVN-MAN-VER$-->
+</dependency>
+<dependency>
+    <groupId>org.liquibase</groupId>
+    <artifactId>liquibase-core</artifactId>
+    <version>4.21.0</version><!--$NO-MVN-MAN-VER$-->
+</dependency>
 
 
 	</dependencies>
